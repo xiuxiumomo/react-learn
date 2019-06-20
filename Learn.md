@@ -62,3 +62,4 @@
 ### 4.4 componentWillUnmount
 
 -   子组件移除 componentWillUnmount
+## redux相关
