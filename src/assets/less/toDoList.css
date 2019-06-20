@@ -1,3 +1,23 @@
 input {
     border: 1px solid red;
 }
+
+.box {
+    background-color: #ccc;
+}
+
+.box .box-item {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.show {
+    opacity: 1;
+    transition: all linear 0.1s;
+}
+
+.hide {
+    opacity: 0;
+    transition: all linear 0.1s;
+}

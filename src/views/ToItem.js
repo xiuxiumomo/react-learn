@@ -5,6 +5,14 @@ class TodoItem extends Component {
         super(props);
         this.itemClick = this.itemClick.bind(this);
     }
+    //子组件只在content发生变化才更新
+    shouldComponentUpdate(nextProps,nextState){
+        if(nextProps.content !== this.props.content){
+            return true;
+        }else{
+            return false;
+        }
+    }
     render() {
         const { content } = this.props;
         return (
@@ -16,6 +24,7 @@ class TodoItem extends Component {
         itemDelete(_index)
 
     }
+   
 }
 
 export default TodoItem;
