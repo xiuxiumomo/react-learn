@@ -62,4 +62,97 @@
 ### 4.4 componentWillUnmount
 
 -   子组件移除 componentWillUnmount
-## redux相关
+## 5 redux相关
+> redux与vuex类似，vuex有借鉴redux的实现原理。
+### 5.1redux工作原理
+~~~
+//在store中引入redux 并且创建store对象。以及创建回调函数reducer 
+import { createStore } from 'redux';
+import reducer from './reducer'
+const store = createStore(reducer);
+export default store;
+
+//reducer.js
+
+import { CHANGE_INPUT_VALUE, CHANGE_ARR, DELETE_ARR } from './actionTypes';
+const defaultState = {
+    inputValue: '1111',
+    list: [1, 2]
+};
+export default (state = defaultState, action) => {
+    if (action.type === CHANGE_INPUT_VALUE) {
+        const newState = Object.assign({}, state);
+        newState.inputValue = action.value;
+        return newState; //如果有改变返回改变后的对象
+    }
+    return state; //默认return state对象
+}
+
+//component
+constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.InputChange = this.InputChange.bind(this);
+    this.handleStoreChange = this.handleStoreChange.bind(this);
+    this.btnClick = this.btnClick.bind(this);
+
+    store.subscribe(this.handleStoreChange)
+}
+
+handleStoreChange() {
+    //相当于this.setState({list:[],inputValue})
+    this.setState(store.getState())
+}
+~~~
+当组件中component->dispatch(action)->state(和默认的state比较看是否有变化，比较原则(直接state比较或者通过action.type比较))->返回newState
+-> 组件中通过store.subscribe监听state是否变化，完成数据根跟新(store.subscribe(this.handleStoreChange))
+
+### 5.2vuex工作原理
+> vuex在main.js中引入，并且使用。原理：页面component通过dispatch触发actions类型actions同时提交commit触发mutation,mutation中改变state数据，通过getters返回state数据，在组件中通过引入mapGetters 请求getters数据
+componet->dispatch('getHome',data) ->mutations(改变state值)->state(通过getters返回新值)->页面中使用
+~~~
+import Vue from 'vue';
+import store from './store'
+//挂载到vue上
+new Vue({
+    el: '#app',
+    router,
+    store,
+    components: { App },
+    template: '<App/>'
+})
+//在store中
+import 'home' from './modules/home';
+import  getters from './getters';
+Vue.use(Vuex)
+export default new Vuex.Store({
+    modules: {
+        home,
+    },
+    getters
+})
+//home中
+const home = {
+    state: {
+        homeData: {}
+    },
+    mutations: {
+        HomeData: (state,data)=>{
+            state.homeData = data;
+        }
+    },
+    actions: {
+        getHome: function({commit},data){
+            commit('HomeData',data)
+        }
+    }
+}
+//getters中
+const Home ={
+    homeData: (state)=>{state.home.homeData}
+}
+//页面中通过mapGetters 使用
+~~~
+
+
+
