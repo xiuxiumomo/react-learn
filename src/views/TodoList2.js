@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TodoListUI from './TodoListUI';
 import store from '../store';
-import { _InputChange, _btnClick, _itemClick,_getHomeAction } from '../store/actionCreators';
+import { _InputChange, _btnClick, _itemClick ,_getSagaData} from '../store/actionCreators';
 class TodoList extends Component {
     constructor(props) {
         super(props);
@@ -15,12 +15,15 @@ class TodoList extends Component {
     }
     componentDidMount() {
         this.getHomeData();
+        console.log(_btnClick)
     }
     getHomeData() {
-       
-        const action = _getHomeAction();
+        // const action = {
+        //     type: 'getSagaData'
+        // };
+        const action = _getSagaData();
         store.dispatch(action);
-        
+
     }
     render() {
         return (<TodoListUI list={this.state.list} inputChange={this.inputChange} inputValue={this.state.inputValue} btnClick={this.btnClick} itemClick={this.itemClick} />)
