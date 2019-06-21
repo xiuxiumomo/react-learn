@@ -1,41 +1,32 @@
 import React, { Component } from 'react';
-import { Input, Button, List } from 'antd';
-import 'antd/dist/antd.css';
+import TodoListUI from './TodoListUI';
 import store from '../store';
-import { _InputChange, _btnClick, _itemClick } from '../store/actionCreators';
-
-
+import { _InputChange, _btnClick, _itemClick,_getHomeAction } from '../store/actionCreators';
 class TodoList extends Component {
     constructor(props) {
         super(props);
         this.state = store.getState();
-        this.InputChange = this.InputChange.bind(this);
+        this.inputChange = this.inputChange.bind(this);
         this.handleStoreChange = this.handleStoreChange.bind(this);
         this.btnClick = this.btnClick.bind(this);
-
+        this.itemClick = this.itemClick.bind(this);
         store.subscribe(this.handleStoreChange)
 
     }
-
+    componentDidMount() {
+        this.getHomeData();
+    }
+    getHomeData() {
+       
+        const action = _getHomeAction();
+        store.dispatch(action);
+        
+    }
     render() {
-        return (
-            <div style={{ marginTop: '20px', marginLeft: '20px' }}>
-                <Input onChange={this.InputChange} value={this.state.inputValue} placeholder="请填写内容" style={{ width: '300px', marginRight: '10px' }}></Input>
-                <Button type="primary" onClick={this.btnClick}>提交</Button>
-                <div style={{ width: '300px' }}>
-                    <List
-                        size="small"
-
-                        bordered
-                        dataSource={this.state.list}
-                        renderItem={(item, index) => <List.Item onClick={this.itemClick.bind(this, index)} >{item}</List.Item>}
-                    />
-                </div>
-            </div>)
-
+        return (<TodoListUI list={this.state.list} inputChange={this.inputChange} inputValue={this.state.inputValue} btnClick={this.btnClick} itemClick={this.itemClick} />)
 
     }
-    InputChange(e) {
+    inputChange(e) {
         const action = _InputChange(e.target.value);
         store.dispatch(action)
 

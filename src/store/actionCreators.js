@@ -1,10 +1,11 @@
-import { CHANGE_INPUT_VALUE, CHANGE_ARR, DELETE_ARR } from './actionTypes';
+import { getData } from '../api/index';
+
+import { CHANGE_INPUT_VALUE, CHANGE_ARR, DELETE_ARR,GET_HOEM_DATA } from './actionTypes';
 export const _InputChange = (value) => {
     return {
         type: CHANGE_INPUT_VALUE,
         value
     }
-
 }
 export const _btnClick = () => {
     return {
@@ -17,4 +18,16 @@ export const _itemClick = (index) => {
         index
     }
 
+}
+export const _getHomeData = (data)=>{
+    return {
+        type: GET_HOEM_DATA,
+        data
+    }
+}
+export const _getHomeAction = ()=>{
+    return async (dispatch)=>{
+        let res = await getData();
+        dispatch(_getHomeData(res.data))
+    }
 }
