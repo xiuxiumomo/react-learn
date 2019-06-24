@@ -1,32 +1,59 @@
-import React,{Component} from 'react';
-import store from '../store/index'
-class TodoList extends Component{
-    constructor(props){
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+class TodoList extends Component {
+    constructor(props) {
         super(props);
-        this.state = store.getState();
-        this.btnClick = this.btnClick.bind(this);
-        this.inputChange = this.inputChange.bind(this);
+        console.log(this.props)
+
+
     }
-    render(){
+    render() {
         return (
             <div>
                 <div>
-                    <input onChange={this.inputChange} type="text" placeholder='请输入内容' value={this.state.inputValue}/>
-                    <button onClick={this.btnClick}>按钮</button>
+                    <input onChange={this.props.inputChange} type="text" placeholder='请输入内容' value={this.props.inputValue} />
+                    <button onClick={this.props.btnClick}>按钮</button>
                 </div>
                 <div>
                     <ul>
-                        <li>jack</li>
+                        {
+                            this.props.list.map((item, index) => {
+                                return (
+                                    <li key={index}>{item}</li>
+                                )
+                            })
+                        }
+
                     </ul>
                 </div>
             </div>
         )
     }
-    btnClick(){
-        console.log(111)
+
+
+}
+const mapStateToProps = (state) => {
+    return {
+        inputValue: state.inputValue,
+        list: state.list
     }
-    inputChange(){
-        console.log('change')
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        inputChange: function (e) {
+            let val = e.target.value;
+            let action = {
+                type: 'change_input_value',
+                value: val
+            }
+            dispatch(action)
+        },
+        btnClick: function () {
+            let action = {
+                type: 'add_list_item'
+            }
+            dispatch(action)
+        }
     }
 }
-export default TodoList;
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
