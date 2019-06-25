@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {todo_input_change,add_list_item,delete_list_item} from '@/store/actionCreator';
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
-
 
     }
     render() {
+        const {inputValue,inputChange,btnClick} = this.props;
         return (
             <div>
                 <div>
-                    <input onChange={this.props.inputChange} type="text" placeholder='请输入内容' value={this.props.inputValue} />
-                    <button onClick={this.props.btnClick}>按钮</button>
+                    <input onChange={inputChange} type="text" placeholder='请输入内容' value={inputValue} />
+                    <button onClick={btnClick}>按钮</button>
                 </div>
                 <div>
                     <ul>
                         {
                             this.props.list.map((item, index) => {
                                 return (
-                                    <li key={index}>{item}</li>
+                                    <li key={index} >{item}</li>
                                 )
                             })
                         }
@@ -42,17 +42,18 @@ const mapDispatchToProps = (dispatch) => {
     return {
         inputChange: function (e) {
             let val = e.target.value;
-            let action = {
-                type: 'change_input_value',
-                value: val
-            }
+            let action = todo_input_change(val);
             dispatch(action)
         },
         btnClick: function () {
-            let action = {
-                type: 'add_list_item'
-            }
+            let action = add_list_item();
             dispatch(action)
+        },
+        deleteItem: function(index){
+            console.log(index)
+            let action = delete_list_item(index);
+            dispatch(action);
+
         }
     }
 }
