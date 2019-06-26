@@ -6,11 +6,13 @@ import { actionCreators } from './store';
 class Header extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
+        this.props.getData();
     }
+   
     render() {
-        const { title,changeTitle } = this.props;
-        console.log(title)
+        const { title,changeTitle,list } = this.props;
+        console.log(list)
+        
         return (
             <div id='common-header'>
                 <div className='title' onClick={changeTitle}>
@@ -19,18 +21,22 @@ class Header extends Component {
             </div>
         )
     }
+    
 }
 const mapStateToProps = (state) => {
     return {
-        title: state.header.title
+        title: state.header.title,
+        list: state.header.list
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         changeTitle: function () {
-           
             let action = actionCreators.change_title(true);
-           
+            dispatch(action)
+        },
+        getData: function(){
+            let action = actionCreators.getHeaderData();
             dispatch(action)
         }
     }
