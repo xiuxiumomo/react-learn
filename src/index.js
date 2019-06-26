@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoList from './views/TodoList.js';
+import 'normalize.css';
+import Header from './components/common/Header'
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
 import store from '@/store';
 const App = (
     <Provider store={store}>
-        <TodoList/>
+        <Header/>
     </Provider>
 ) 
 

@@ -35,10 +35,13 @@ const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
 const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 // style files regexes
-const cssRegex = /\.css$/;
-const cssModuleRegex = /\.module\.css$/;
+const cssRegex = /\.(css)$/;
+const cssModuleRegex = /\.module\.(css)$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+//less
+const lessRegex = /\.(less)$/;
+const lessModuleRegex = /\.module\.(less)$/;
 
 function pathResolve(dir) {
   return path.join(__dirname, '.', dir)
@@ -387,13 +390,7 @@ module.exports = function(webpackEnv) {
                 sourceMaps: false,
               },
             },
-            // "postcss" loader applies autoprefixer to our CSS.
-            // "css" loader resolves paths in CSS and adds assets as dependencies.
-            // "style" loader turns CSS into JS modules that inject <style> tags.
-            // In production, we use MiniCSSExtractPlugin to extract that CSS
-            // to a file, but in development "style" loader enables hot editing
-            // of CSS.
-            // By default we support CSS Modules with the extension .module.css
+            
             {
               test: cssRegex,
               exclude: cssModuleRegex,
@@ -401,10 +398,7 @@ module.exports = function(webpackEnv) {
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
               }),
-              // Don't consider CSS imports dead code even if the
-              // containing package claims to have no side effects.
-              // Remove this when webpack adds a warning or an error for this.
-              // See https://github.com/webpack/webpack/issues/6571
+              
               sideEffects: true,
             },
             // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
@@ -431,10 +425,20 @@ module.exports = function(webpackEnv) {
                 },
                 'sass-loader'
               ),
-              // Don't consider CSS imports dead code even if the
-              // containing package claims to have no side effects.
-              // Remove this when webpack adds a warning or an error for this.
-              // See https://github.com/webpack/webpack/issues/6571
+              
+              sideEffects: true,
+            },
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                },
+                'less-loader'
+              ),
+              
               sideEffects: true,
             },
             // Adds support for CSS Modules, but using SASS
@@ -449,6 +453,18 @@ module.exports = function(webpackEnv) {
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
                 'sass-loader'
+              ),
+            },
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
+                'less-loader'
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
