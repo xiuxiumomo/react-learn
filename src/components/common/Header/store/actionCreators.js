@@ -16,7 +16,7 @@ export const getHeaderData = ()=>{
                 type: actionTypes.GETDATA,
                 value: data
             }
-           
+            
             dispatch(action)
         }
     }
