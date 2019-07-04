@@ -1,0 +1,74 @@
+//混合
+//flex居中
+.flex-center(@direction: 'row') {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: center;
+    align-items: center;
+}
+
+.fs(@size) {
+    font-size: @size / 100px * 1rem;
+}
+
+.border-1px(@color, @width: 1px) {
+    &:after {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-top: @width solid @color;
+        content: ' ';
+        @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+            & {
+                transform: scaleY(0.7)
+            }
+        }
+        @media (-webkit-min-device-pixel-ratio: 2),
+        (min-device-pixel-ratio: 2) {
+            & {
+                transform: scaleY(0.5)
+            }
+        }
+    }
+}
+
+.ffpf {
+    font-family: PingFangSC-Regular;
+}
+
+.pa(@t: 0, @r: 0, @b: 0, @l: 0) {
+    position: absolute;
+    top: @t;
+    right: @r;
+    bottom: @b;
+    left: @l;
+}
+
+.sidepd(@leftAndRight: 0.4rem, @topAndBottom: 0) {
+    padding: @topAndBottom @leftAndRight;
+}
+
+.inlineVC(@height) {
+    line-height: @height;
+    height: @height;
+}
+
+.posVC {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+} //多行省略
+.multiClip(@line: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: @line;
+    -webkit-box-orient: vertical;
+}
+
+.wEqualH(@size) {
+    width: @size;
+    height: @size;
+}

@@ -1,0 +1,438 @@
+#team {
+    background-image: url('../../img/team/t_bg.png');
+    height: 5000px;
+
+    .top {
+        height: 420px;
+        background-image: url('../../img/team/banner.png');
+        p {
+            line-height: 50px;
+            letter-spacing: 7px;
+            font-size: 50px;
+            font-weight: 500;
+            color: rgba(242, 242, 242, 1);
+            padding-top: 80px;
+        }
+    }
+
+    .main-box {
+        .el-menu {
+            border: 0px;
+        }
+
+        .el-menu-item {
+            padding: 0 30px;
+
+            a {
+                &:hover {
+                    color: @manColor;
+                }
+            }
+        }
+
+        .hd {
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .bd {
+            .book-name {
+                color: @manColor;
+
+            }
+
+            .title {
+                width: 338px;
+                height: 55px;
+                margin-top: 50px;
+            }
+
+            .r-box {
+                float: right;
+                margin-top: 50px;
+
+                .msg {
+                    height: 220px;
+                    width: 600px;
+                    display: inline-block;
+
+                    .msg-title {
+                        font-size: 20px;
+                        color: #1E1E1E;
+                        position: relative;
+                        text-align: right;
+                        padding-bottom: 50px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: @manColor;
+                        }
+
+                        &::after {
+                            content: '';
+                            width: 50px;
+                            height: 3px;
+                            background-color: @manColor;
+                            position: absolute;
+                            top: 40px;
+                            right: 0;
+
+                        }
+                    }
+
+                    .msg-about {
+                        color: #555;
+                        font-size: 14px;
+                        line-height: 30px;
+                        text-align: right;
+                    }
+
+                    .book {
+                        margin-top: 20px;
+                    }
+                }
+
+                .img-box {
+                    float: right;
+                    width: 274px;
+                    height: 220px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        margin-left: 60px;
+                    }
+                }
+            }
+
+            .l-box {
+                margin-top: 50px;
+
+                .msg {
+                    height: 220px;
+                    width: 700px;
+                    display: block;
+                    float: left;
+
+                    .msg-title {
+                        font-size: 20px;
+                        color: #1E1E1E;
+                        position: relative;
+                        text-align: left;
+                        padding-bottom: 50px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: @manColor;
+                        }
+
+                        &::after {
+                            content: '';
+                            width: 50px;
+                            height: 3px;
+                            background-color: @manColor;
+                            position: absolute;
+                            top: 40px;
+                            left: 0;
+                        }
+                    }
+
+                    .msg-about {
+                        color: #555;
+                        font-size: 14px;
+                        line-height: 30px;
+                        text-align: left;
+                    }
+
+                    .book {
+                        margin-top: 20px;
+                    }
+                }
+
+                .img-box {
+                    display: block;
+                    width: 274px;
+                    height: 220px;
+                    float: left;
+                    margin-right: 60px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        margin-right: 60px;
+                    }
+                }
+            }
+        }
+
+        .bd-2 {
+            .one-book {
+                margin-top: 50px;
+                text-align: center;
+
+                .one-book-img {
+                    width: 172px;
+                    height: 224px;
+                    border: 2px solid #6F6F6F;
+                    margin: 0 auto;
+                    position: relative;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: -10px;
+                        left: -10px;
+
+                    }
+
+                    // &:hover{
+                    //     background-color: @manColor;
+                    //     border-color: @manColor;
+                    // }
+                }
+
+                .one-book-msg {
+                    text-align: center;
+
+                    .title-2 {
+                        color: #333;
+                        font-weight: 500;
+                        font-size: 22px;
+                        text-align: center;
+                        margin-top: 50px;
+                    }
+
+                    .author {
+                        font-size: 18px;
+                        color: #333;
+                        margin: 30px 0;
+                    }
+
+                    .msg {
+                        color: #555;
+                        font-size: 14px;
+                        width: 454px;
+                        height: 46px;
+                        margin: 0 auto;
+                        line-height: 28px;
+                    }
+
+                }
+
+                &:hover {
+                    .one-book-img {
+                        background-color: @manColor;
+                        border-color: @manColor;
+                    }
+
+                    .one-book-msg {
+                        .title-2 {
+                            color: @manColor;
+                        }
+
+                        .author {
+                            color: @manColor;
+                        }
+                    }
+
+                }
+            }
+
+            .item-box {
+                margin-top: 90px;
+
+                .item {
+                    width: 294px;
+                    margin-right: 145px;
+                    margin-bottom: 80px;
+
+                    .img-box {
+                        width: 160px;
+                        height: 180px;
+                        margin: 0 auto;
+                        position: relative;
+                        border: 2px solid #6F6F6F;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: -10px;
+                            left: -10px;
+                        }
+                    }
+
+                    .author-box {
+                        text-align: center;
+
+                        .job {
+                            font-size: 18px;
+                            color: #1E1E1E;
+                            font-weight: 500;
+                            margin-top: 30px;
+                        }
+
+                        .name {
+                            color: #333;
+                            font-size: 16px;
+                            margin: 28px 0;
+                        }
+                    }
+
+                    .about {
+                        font-size: 14px;
+                        color: #555;
+                        line-height: 28px;
+
+                        span {
+                            color: @manColor;
+                        }
+                    }
+
+                    &:hover {
+                        .img-box {
+                            background-color: @manColor;
+                            border-color: @manColor;
+                        }
+
+                        .author-box {
+
+                            .job {
+                                color: @manColor;
+                            }
+
+                            .name {
+                                color: @manColor;
+                            }
+                        }
+                    }
+
+                    &:nth-child(3),
+                    &:nth-child(6),
+                    &:nth-child(9) {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        .bd-3 {
+            .title {
+                margin-top: 100px;
+            }
+
+            .team-box {
+                margin-top: 50px;
+
+                .item {
+                    width: 198px;
+                    height: 272px;
+                    position: relative;
+
+                    .shadow {
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.2);
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transition: all .4s cubic-bezier(.4, 0, .2, 1);
+                    }
+
+                    &:nth-child(1) {
+                        background-image: url("../../../assets/img/team/1.png");
+                    }
+
+                    &:nth-child(2) {
+                        background-image: url("../../../assets/img/team/2.png");
+                    }
+
+                    &:nth-child(3) {
+                        background-image: url("../../../assets/img/team/3.png");
+
+                        .a-name {
+                            &::after {
+                                left: 11%;
+                            }
+                        }
+                    }
+
+                    &:nth-child(4) {
+                        background-image: url("../../../assets/img/team/4.png");
+                    }
+
+                    &:nth-child(5) {
+                        background-image: url("../../../assets/img/team/5.png");
+
+                        .a-name {
+                            &::after {
+                                left: 11%;
+                            }
+                        }
+                    }
+
+                    &:nth-child(6) {
+                        background-image: url("../../../assets/img/team/6.png");
+                    }
+
+                    .a-name {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 18px;
+                        color: #fff;
+                        transition: all .4s cubic-bezier(.4, 0, .2, 1);
+
+                        &::after {
+                            position: absolute;
+                            content: '';
+                            width: 30px;
+                            height: 2px;
+                            background-color: #fff;
+                            bottom: -75%;
+                            left: 26%;
+                        }
+
+
+                    }
+
+                    .msg-box {
+                        width: 130px;
+                        height: 127px;
+                        position: absolute;
+                        bottom: 0%;
+                        left: 17%;
+                        color: #fff;
+                        font-size: 13px;
+                        opacity: 0;
+                        transition: all .4s cubic-bezier(.4, 0, .2, 1);
+
+                    }
+
+                    &:hover {
+                        .shadow {
+                            background-color: rgba(59, 153, 217, 0.9);
+                        }
+
+                        .a-name {
+                            top: 26%;
+
+                            &::after {
+                                width: 0;
+                                height: 0;
+                            }
+                        }
+
+                        .msg-box {
+                            opacity: 1;
+                            bottom: 10%;
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+}

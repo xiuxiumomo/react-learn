@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="章节阅读页（背景1）" transform="translate(-397.000000, -594.000000)" stroke="#D8D8D8">
+            <g id="书架" transform="translate(365.000000, 572.000000)">
+                <g id="Group-10" transform="translate(29.000000, 22.000000)">
+                    <g id="icon3" transform="translate(3.000000, 0.000000)">
+                        <path d="M1,15.5 L17,15.5" id="Path-4" stroke-linecap="round"></path>
+                        <rect id="Rectangle" x="2.5" y="0.5" width="3" height="13"></rect>
+                        <path d="M8,3.5 C7.72385763,3.5 7.5,3.72385763 7.5,4 L7.5,13 C7.5,13.2761424 7.72385763,13.5 8,13.5 L10,13.5 C10.2761424,13.5 10.5,13.2761424 10.5,13 L10.5,4 C10.5,3.72385763 10.2761424,3.5 10,3.5 L8,3.5 Z" id="Rectangle"></path>
+                        <path d="M13,2.5 C12.7238576,2.5 12.5,2.72385763 12.5,3 L12.5,13 C12.5,13.2761424 12.7238576,13.5 13,13.5 L15,13.5 C15.2761424,13.5 15.5,13.2761424 15.5,13 L15.5,3 C15.5,2.72385763 15.2761424,2.5 15,2.5 L13,2.5 Z" id="Rectangle"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

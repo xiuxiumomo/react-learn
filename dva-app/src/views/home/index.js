@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Button } from 'antd';
 class Home extends Component {
-    constructor(props) {
-        super(props)
-    }
+
     componentDidMount(){
         this.props.getTableData();
+        console.log(process.env)
     }
     render() {
         const { inputValue,tableData } = this.props.home;
-
+        console.log(tableData)
         return (
             <div>
                 <input value={inputValue} onChange={this.props.inputChange}></input><Button>提交</Button>

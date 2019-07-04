@@ -1,6 +1,28 @@
 {
-  "extraBabelPlugins": [
-        ["import", { "libraryName": "antd", "style": true }]
-  ],
-  "disableCSSModules": true
+    "extraBabelPlugins": [
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "style": true
+            }
+        ]
+    ],
+    "disableCSSModules": true,
+    "define": {
+
+    },
+    "env": {
+        "development": {
+            "extraBabelPlugins": [
+                "dva-hmr"
+            ]
+        }
+    },
+    "proxy": {
+        "/api": {
+            "target": "http://localhost:9093/",
+            "changeOrigin": true
+        }
+    }
 }

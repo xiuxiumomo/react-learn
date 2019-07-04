@@ -1,0 +1,287 @@
+
+
+#rank{
+    background-color: @bgColor;
+    .btn-next,.btn-prev{
+        padding: 0 6px;
+    }
+    .content-left{
+        width: 198px;
+        color: #555555;
+        font-size: 14px;
+        .list{
+            padding: 20px 0 10px;
+            text-align: center;
+            background-color: #ffffff;
+            .list-name{
+                font-size: 16px;
+                &.list-name-boy{
+                    color: @manColor;
+                }
+                &.list-name-girl{
+                    color: @womanColor;
+                }
+            }
+            .item{
+                text-align: center;
+                margin: 10px 0;
+                cursor: pointer;
+                line-height: 30px;
+            }
+            &.man-list{
+                .item{
+                    &.on{
+                        color: @manColor;
+                        border-bottom: 1px solid @manColor
+                    }
+                    &:hover{
+                        color: @manColor;
+                    }
+                }
+            }
+            &.woman-list{
+                .item{
+                    &.on{
+                        color: @womanColor;
+                        border-bottom: 1px solid @womanColor
+                    }
+                    &:hover{
+                        color: @womanColor;
+                    }
+                }
+            }
+        }
+    }
+    .content-right{
+        width: 972px;
+        min-height: 600px;
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 52px 40px 76px 40px;
+        .list-box{
+            .top-common-box{
+                width: 284px;
+                background-color: #ffffff;
+                padding: 15px 15px 60px 15px;
+                position: relative;
+                .hd {
+                    border-bottom: 1px solid @manColor;
+                    img {
+                        width: 38px;
+                        height: 36px;
+                        vertical-align: middle;
+                    }
+                    .name {
+                        color: #333;
+                        font-size: 16px;
+                       
+                        
+                    }
+                }
+
+                .book-list {
+                    .book-one {
+                        margin-top: 30px;
+                        margin-bottom: 16px;
+                        .ranking {
+                            color: #EE0000;
+                            font-size: 14px;
+                            margin-right: 15px;
+                        }
+                        img {
+                            width: 100px;
+                            height: 140px;
+
+                        }
+                        .book-info {
+                            width: 108px;
+                            .title {
+                                color: #333;
+                                font-size: 14px;
+                                font-weight: bold;
+                                &:hover{
+                                    color: @manColor;
+                                }
+                            }
+                            .author {
+                                color: #999999;
+                                font-size: 12px;
+                                margin: 10px 0 20px 0;
+                            }
+                            .desc {
+                                color: #666666;
+                                font-size: 12px;
+                                max-height: 30px;
+
+                            }
+                        }
+                    }
+                    .item {
+                        margin: 15px 0;
+                        font-size: 12px;
+                        .dot-num {
+                            color: #999999;
+                            margin-right: 10px;
+                        }
+                        .book-name {
+                            color: #333333;
+                            &:hover{
+                                color: @manColor;
+                            }
+                        }
+                        &:nth-child(2){
+                            .dot-num{
+                                color: #FF4D00;
+                            }
+                        }
+                        &:nth-child(3){
+                            .dot-num{
+                                color: #FEA000;
+                            }
+                        }
+                    }
+
+                }
+                .more {
+                    height: 44px;
+                    line-height: 44px;
+                    text-align: center;
+                    color: #BFBFBF;
+                    font-size: 14px;
+                    background-color: #F5F5F5;
+                    width: 282px;
+                    margin: 20px -15px -2px;
+                    position: absolute;
+                    bottom: 2px;
+                }
+            }
+            .list-item{
+                float: left;
+                margin-right: 20px;
+                margin-bottom: 20px;
+                background-color: #ffffff;
+                border: 1px solid #F0F0F0;
+                &:nth-child(3){
+                    margin-right: 0;
+                }
+                &:nth-child(6){
+                    margin-right: 0;
+                }
+            }
+        }
+
+    }
+    .content-right-single{
+        background-color: #ffffff;
+        padding: 20px 0;
+        width: 972px;
+        .hd{
+            border-bottom: 1px solid #F1F1F1;
+            padding: 20px 20px;
+            font-size: 16px;
+            color: #1E1E1E;
+        }
+        .bd{
+            padding: 10px 36px 10px 31px;
+            .book-box {
+                margin-top: 30px;
+                .book-box-item{
+                    margin-bottom: 30px;
+                    .book-box-img {
+                        float: left;
+                        width: 100px;
+                        height: 140px;
+                        background-color: @manColor;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .book-box-novel {
+                        float: left;
+                        margin-left: 20px;
+                        width: 546px;
+                        .novel-img-name {
+                            font-size: 16px;
+                            color: #0A1217;
+                        }
+                        .novel-info {
+                            height: 18px;
+                            margin: 10px 0 13px 0;
+                            div {
+                                float: left;
+                                color: #999;
+                                font-size: 12px;
+                                cursor: pointer;
+                                margin-right: 10px;
+                            }
+                        }
+                        .nove-desc {
+                            font-size: 12px;
+                            color: #666;
+                            margin-bottom: 10px;
+                            max-height: 32px;
+                        }
+                        .novel-latest {
+                            .chapter {
+                                float: left;
+                                color: @manColor;
+                                font-size: 12px;
+                                width: 180px;
+                            }
+                            .time {
+                                color: #999;
+                                font-size: 12px;
+                                margin-left: 247px;
+                            }
+                        }
+
+                    }
+                    .novel-right {
+                        float: right;
+                        width: 90px;
+                        height: 140px;
+                        .btn-item {
+                            width: 86px;
+                            height: 32px;
+                            text-align: center;
+                            line-height: 32px;
+                            border-radius: 4px;
+                            font-size: 14px;
+                        }
+                        .btn-item-1 {
+                            background-color: #3B99D9;
+                            color: #ffffff;
+                            margin: 16px 0;
+                        }
+                        .btn-item-2 {
+                            background-color: #ffffff;
+                            color: #3B99D9;
+                            border: 1px solid #3B99D9;
+                        }
+                    }
+                }
+
+                .page{
+                    margin-top: 30px;
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

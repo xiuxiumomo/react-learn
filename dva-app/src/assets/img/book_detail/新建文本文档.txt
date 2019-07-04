@@ -1,0 +1,141 @@
+<div class="clearfix"></div>
+			<!--adv-1-->
+			<div class="adv-box" v-if="homeBannerList.adv_data[0]">
+				<img :src="homeBannerList.adv_data[0].to_img" @click="bannerGo(homeBannerList.adv_data[0])">
+			</div>
+			<!--title -->
+			<div class="com-title normal-bg">
+				<span class="s-t-1">{{homeTemplete[1].name.slice(0,2)}}</span>
+				<span class="s-t-2">{{homeTemplete[1].name.slice(2,homeTemplete[1].name.length)}}</span>
+			</div>
+			<!--woman channel-->
+			<div class="man woman">
+				<!-- left -->
+				<div class="man-left fl" @click="goBookInfo(homeTemplete[1].bindbook[0].book.id)">
+					<div
+						class="first-img normal-bg"
+						:style="{backgroundImage: 'url('+homeTemplete[1].bindbook[0].book.img_help+')'}"
+					>
+						<div class="transparent">
+							<div class="hd">
+								<div class="title">{{homeTemplete[1].bindbook[0].book.name}}</div>
+								<div class="name">{{homeTemplete[1].bindbook[0].book.pen_name}}</div>
+							</div>
+							<div class="desc-box">
+								<img src="../../assets/img/home/dot_left.png" alt class="icon fl">
+								<div class="words fl ellipse-2">{{homeTemplete[1].bindbook[0].book.desc}}</div>
+								<img src="../../assets/img/home/dot_right.png" alt class="icon fr">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- mid -->
+				<div class="woman-mid fl">
+					<div
+						class="item pointer"
+						v-for="(item,index) in homeTemplete[1].bindbook.slice(1,4)"
+						:key="item.book.id"
+						@mouseenter="woman.currIndex=index"
+						@click="goBookInfo(item.book.id)"
+					>
+						<div class="img-box fl">
+							<img :src="item.book.img_help" alt v-if="item.book.img_help">
+						</div>
+						<div class="right-box fl">
+							<div class="title">{{item.book.name}}</div>
+							<div class="author">{{item.book.pen_name}}</div>
+							<div class="desc ellipse-2">{{item.book.desc}}</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- right -->
+				<div class="man-right fr" v-if="homeRankIndex.count_rand">
+					<common-rank title="人气榜" :data="homeRankIndex.count_rand" :params="{sex:'',type:'2'}"></common-rank>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<!--adv-2-->
+			<div class="adv-box" v-if="homeBannerList.adv_data[1]">
+				<img :src="homeBannerList.adv_data[1].to_img" @click="bannerGo(homeBannerList.adv_data[1])">
+			</div>
+			<!-- title -->
+			<div class="com-title normal-bg" v-if="homeTemplete[2].name">
+				<span class="s-t-1">{{homeTemplete[2].name.slice(0,2)}}</span>
+				<span class="s-t-2">{{homeTemplete[2].name.slice(2,homeTemplete[2].name.length)}}</span>
+			</div>
+			<!--recom channel-->
+			<div class="man rec" v-if="homeTemplete[2]">
+				<!-- left -->
+				<div class="man-left fl">
+					<div class="part_1">
+						<!-- 3D banner -->
+						<div class="swiper3d">
+							<el-carousel
+								:interval="4000"
+								type="card"
+								height="200px"
+								indicator-position="none"
+								arrow="never"
+								@change="recCarousel"
+							>
+								<el-carousel-item v-for="item in homeTemplete[2].bindbook.slice(0,5)" :key="item.book.id">
+									<img :src="item.book.img" @click="goBook(item)">
+								</el-carousel-item>
+							</el-carousel>
+						</div>
+						<div class="title">{{homeTemplete[2].bindbook[rec.currIndex].book.name}}</div>
+						<div class="msg">
+							<span>{{homeTemplete[2].bindbook[rec.currIndex].book.serial_status}}</span> |
+							<span>{{homeTemplete[2].bindbook[rec.currIndex].book.cat_name}}</span> |
+							<span>{{homeTemplete[2].bindbook[rec.currIndex].book.view_count}}字</span>
+						</div>
+						<div class="desc ellipse-2">{{homeTemplete[2].bindbook[rec.currIndex].book.desc}}</div>
+					</div>
+					<div class="btn">
+						<div
+							class="b-btn pointer"
+							@click="goBookInfo(homeTemplete[2].bindbook[rec.currIndex].book.id)"
+						>书籍详情</div>
+					</div>
+				</div>
+
+				<!-- mid -->
+				<div class="rec-mid fl">
+					<div class="box">
+						<div
+							class="item pointer"
+							v-for="(item,index) in homeTemplete[2].bindbook.slice(5,13)"
+							:key="item.book.id"
+							v-if="index<=7"
+							@click="goBookInfo(item.book.id)"
+						>
+							<div class="img-box fl">
+								<img :src="item.book.img" alt v-if="item.book.img">
+							</div>
+							<div class="right-box fr">
+								<div class="title ellipse">{{item.book.name}}</div>
+								<div class="author">{{item.book.pen_name}}</div>
+								<div class="desc ellipse-2">{{item.book.desc}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- right -->
+				<div class="man-right fr" v-if="homeRankIndex.word_count_rand">
+					<common-rank title="字数更新榜" :data="homeRankIndex.word_count_rand" :params="{sex:'',type:7}"></common-rank>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<!-- adv -->
+			<div class="adv-box" v-if="homeBannerList.adv_data[2]">
+				<img :src="homeBannerList.adv_data[2].to_img" @click="bannerGo(homeBannerList.adv_data[2])">
+			</div>
+			<!-- four-item  -->
+			<div class="category">
+				<div class="list-item fl" v-for="(item) in homeCategory" :key="item.id">
+					<common-rank :title="item.cat_name" :data="item.cat_book" :params="{sex:'',type:''}"></common-rank>
+				</div>
+			</div>

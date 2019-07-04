@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="18px" viewBox="0 0 16 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="章节阅读页（背景1）" transform="translate(-398.000000, -679.000000)" stroke="#D8D8D8">
+            <g id="详情" transform="translate(365.000000, 658.000000)">
+                <g id="icon4" transform="translate(34.000000, 22.000000)">
+                    <path d="M1,0 L2.23076923,0 C2.78305398,-1.01453063e-16 3.23076923,0.44771525 3.23076923,1 L3.23076923,5.68941453 L5.38461538,4.66807577 L7.53846154,5.68941453 L7.53846154,1 C7.53846154,0.44771525 7.98617679,1.01453063e-16 8.53846154,0 L13,0 C13.5522847,-1.01453063e-16 14,0.44771525 14,1 L14,15 C14,15.5522847 13.5522847,16 13,16 L1,16 C0.44771525,16 6.76353751e-17,15.5522847 0,15 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z" id="Path-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
