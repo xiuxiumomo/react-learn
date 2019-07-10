@@ -11,8 +11,9 @@ import Detail from './views/detail';
 const App = (
     <Provider store={store}>
         <div>
-            <Header />
+           
             <BrowserRouter>
+                <Header />
                 <div>
                     <Route path='/' exact component={Home}></Route>
                     <Route path='/detail' exact component={Detail}></Route>
