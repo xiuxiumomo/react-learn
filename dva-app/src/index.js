@@ -1,6 +1,7 @@
 import dva from 'dva';
 import './assets/less/index.less';
-import 'antd/dist/antd.css'
+import  'antd-mobile/dist/antd-mobile.less';
+import 'normalize.css';
 
 // 1. Initialize
 const app = dva();

@@ -1,30 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Button } from 'antd';
+import { Button, Switch } from 'antd-mobile';
+import { array } from 'prop-types';
 class Home extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            checked: false
+        }
+        this.switchChange = this.switchChange.bind(this);
+
+
     }
-    componentDidMount(){
+    componentDidMount() {
         this.props.getTableData();
+        console.log(this.props)
+
     }
     render() {
-        const { inputValue,tableData } = this.props.home;
-
+        const { inputValue } = this.props.home;
         return (
             <div>
-                <input value={inputValue} onChange={this.props.inputChange}></input><Button>提交</Button>
+                <input value={inputValue} onChange={this.props.inputChange}></input>
+                <Button>提交</Button>
+                <Switch checked={this.state.checked} onChange={this.switchChange}></Switch>
                 <ul>
-                    <li>aaa</li>
-                    <li>bbb</li>
+                    {
+                        this.renderUI()
+                    }
                 </ul>
             </div>
         )
     }
+    switchChange() {
+        let checked = this.state.checked;
+        this.setState({
+            checked: !checked
+        })
+    }
+    renderUI() {
+        let { tableData } = this.props.home;
+        let arr = tableData.data;
+        return arr.map((item) => {
+            return (<li>{item.name}</li>)
+        })
+
+    }
+
 
 }
-
-
 
 Home.propTypes = {
 
@@ -41,7 +65,7 @@ const mapDispatch = (dispatch) => {
                 value
             })
         },
-        getTableData: function(){
+        getTableData: function () {
             dispatch({
                 type: 'home/getTableData'
             })

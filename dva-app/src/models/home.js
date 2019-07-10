@@ -3,7 +3,6 @@ import { home as api } from '../services';
 export default {
 
     namespace: 'home',
-
     state: {
         inputValue: 'ddddd',
         tableData: {
