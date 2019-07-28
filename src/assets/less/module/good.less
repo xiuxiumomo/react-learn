@@ -1,0 +1,54 @@
+:global{
+  #goods{
+    .slide-wrap{
+        height: 4rem;
+        overflow: hidden;
+        .banner-item{
+            height: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+            }
+        }
+    }
+    .list-box{
+        color: @textColor;
+        font-size: 0.28rem;
+        margin-top: 0.2rem;
+        .item{
+            background-color: #fff;
+            border-radius: 0.08rem;
+            box-shadow: 0 0 0.16rem rgba(0, 0, 0, 0.3);
+            padding: 0.2rem;
+            margin-bottom: 0.2rem;
+            height: 1.8rem;
+            .left-item{
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-around;
+                width: 66%;
+                height: 100%;
+                .msg{
+                    span{
+                        color: @normalColor;
+                        font-size: 0.24rem;
+                        &:nth-child(2){
+                            margin-left: 0.2rem;
+                        }
+                    }
+                }
+            }
+            .right-item{
+                width: 2.4rem;
+                height: 100%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+}
+
