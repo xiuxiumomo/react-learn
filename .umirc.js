@@ -24,6 +24,10 @@ export default {
     src: path.resolve(__dirname,'src'),
     '@': path.resolve(__dirname,'src')
   },
+  devServer: {
+    host: '0.0.0.0',
+    port: 3000
+  },
   proxy: {
       "/api/v1": {
       "target": "",
