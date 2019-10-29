@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {todo_input_change,add_list_item,delete_list_item} from '@/store/actionCreator';
+import { todo_input_change, add_list_item, delete_list_item } from '@/store/actionCreator';
 class TodoList extends Component {
-    constructor(props) {
-        super(props);
-
-    }
     render() {
-        const {inputValue,inputChange,btnClick} = this.props;
+        const { inputValue, inputChange, btnClick } = this.props;
         return (
             <div>
                 <div>
@@ -49,7 +45,7 @@ const mapDispatchToProps = (dispatch) => {
             let action = add_list_item();
             dispatch(action)
         },
-        deleteItem: function(index){
+        deleteItem: function (index) {
             console.log(index)
             let action = delete_list_item(index);
             dispatch(action);
